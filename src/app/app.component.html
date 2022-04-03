@@ -1,8 +1,30 @@
-<app-header></app-header>
+<div class="container">
+  <header
+    class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
+    <a href="/" class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none">
+      <i class="fs-1 text-secondary bi bi-emoji-smile-fill"></i>
+    </a>
+
+    <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
+      <li><a [routerLink]="['home']" routerLinkActive="active" class="nav-link px-2 link-secondary">Home</a></li>
+      <li><a routerLink="/user/123" class="nav-link px-2 link-dark">User</a></li>
+      <li><a [routerLink]="['user', '123']" class="nav-link px-2 link-dark">User</a></li>
+      <li><a routerLink="/lazy-loaded" class="nav-link px-2 link-dark">Lazy Loaded</a></li>
+      <li><a [routerLink]="['parent']" routerLinkActive="active" class="nav-link px-2 link-dark">Nested Route</a></li>
+
+      <li><a [routerLink]="['another']" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="nav-link px-2 link-dark">Another module: Page one</a></li>
+      <li><a [routerLink]="['another', 'two']" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="nav-link px-2 link-dark">Another module: Page two</a></li>
+    </ul>
+
+    <div class="col-md-3 text-end">
+      <button (click)="goToUserPage()" type="button" class="btn btn-outline-primary me-2">User</button>
+      <button (click)="performSimpleRedirect()" type="button" class="btn btn-primary">Simple</button>
+    </div>
+  </header>
+</div>
 
 <div class="container">
-
-
+  <router-outlet></router-outlet>
 </div>
 
 <app-footer></app-footer>
