@@ -11,6 +11,8 @@ import {
 import {
   RightTabComponent
 } from './pages/tabs/pages/right-tab/right-tab.component';
+import { AdminPageComponent } from './pages/admin-page/admin-page.component';
+import { AuthGuard } from './guards/auth.guard';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -30,6 +32,7 @@ const routes: Routes = [
       { path: 'right', component: RightTabComponent },
     ]
   },
+  { path: 'admin', component: AdminPageComponent, canActivate: [AuthGuard]},
   {
     path: 'another',
     loadChildren: () =>
